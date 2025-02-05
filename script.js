@@ -27,22 +27,26 @@ async function getData() {
 };
 
 function displayData(parkings) {
-    console.log(`My parkings to display:`,parkings);
+    console.log(`My parkings to display:`, parkings);
     parkings.forEach(parking => {
         const { occupation, totalcapacity, name, isopennow } = parking;
-        let status = isopennow ? "Open" : "Closed";
-       
-        console.log(`Occupation: ${occupation} | Capacity: ${totalcapacity} | Parking name: ${name} | Status: ${status}`);
-        const parkingCard = document.createElement("div")
+        let statusText = isopennow ? "Open" : "Closed"; 
+        let statusClass = isopennow ? "open" : "closed"; 
+
+        console.log(`Occupation: ${occupation} | Capacity: ${totalcapacity} | Parking name: ${name} | Status: ${statusText}`);
+        const parkingCard = document.createElement("div");
         parkingCard.className = "Parking";
         parkingCard.innerHTML = `
         <h2>${name}</h2>
         <p>Bezetting ${occupation}</p>
         <p>Capaciteit ${totalcapacity}</p>
-        <p>Status ${status}</p>
+        <p>Status: <span class="${statusClass}">${statusText}</span></p>
         `;
         parkingdiv.appendChild(parkingCard);
- });
-};
+    });
+}
+
+
+
 
 getData();

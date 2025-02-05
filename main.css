@@ -1,0 +1,118 @@
+:root {
+    /* Kleuren */
+    --white: white;
+    --bleu: #003366;
+    --grey: #333;
+    --black: rgb(0, 0, 0);
+    --red: red;
+    --green: green;
+    /* Border */
+    --border: var(--black) solid .5px;
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--white);
+    color: var(--grey);
+    margin: 0;
+    padding: 0;
+}
+
+
+h1 {
+    background-color: var(--bleu);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+
+#parkingData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+
+.Parking {
+    background-color: var(--white);
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: var(--black) 0px 4px 8px;
+    transition: all .2s;
+}
+
+
+.Parking:hover {
+    transform: scale(1.05);
+    box-shadow: var(--grey)  5px 5px ;
+    border: var(--border);
+}
+
+
+.Parking h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--bleu);
+}
+
+.Parking p {
+    font-size: 1em;
+    color: var(--black);
+    margin: 5px 0;
+}
+
+
+.Parking p:last-of-type {
+    font-weight: bold;
+}
+
+.Parking .open {
+    color: var(--green) ;
+}
+
+.Parking .closed {
+    color: var(--red);
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.Parking {
+    animation: fadeIn 0.8s ease-out;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .Parking {
+        width: 100%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        padding: 15px;
+    }
+}
